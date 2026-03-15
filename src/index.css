@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core brand colors - Deep navy for trust, sky blue for glass theme */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Deep navy blue - professionalism and trust */
+    --primary: 215 60% 25%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Light sky blue - glass/water theme */
+    --secondary: 200 80% 94%;
+    --secondary-foreground: 215 60% 25%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Warm amber accent - African warmth, CTAs */
+    --accent: 35 95% 55%;
+    --accent-foreground: 215 25% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 215 60% 25%;
+
+    --radius: 0.75rem;
+
+    /* Custom brand tokens */
+    --glass-gradient: linear-gradient(135deg, hsl(200 80% 94%) 0%, hsl(210 60% 98%) 100%);
+    --hero-gradient: linear-gradient(135deg, hsl(215 60% 20%) 0%, hsl(215 50% 35%) 50%, hsl(200 60% 45%) 100%);
+    --cta-gradient: linear-gradient(135deg, hsl(35 95% 50%) 0%, hsl(25 95% 55%) 100%);
+    --card-shadow: 0 4px 20px -4px hsl(215 60% 25% / 0.1);
+    --card-shadow-hover: 0 12px 32px -8px hsl(215 60% 25% / 0.2);
+
+    /* WhatsApp green */
+    --whatsapp: 142 70% 45%;
+    --whatsapp-foreground: 0 0% 100%;
+
+    /* Sidebar defaults */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 30% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 215 30% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 215 30% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 70% 60%;
+    --primary-foreground: 215 30% 10%;
+
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 215 30% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 35 95% 55%;
+    --accent-foreground: 215 25% 10%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 30% 20%;
+    --input: 215 30% 20%;
+    --ring: 200 70% 60%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    /* Classic & Elegant - Lato for body text */
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Display headings - Playfair Display for elegant headlines */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* Alternative display font */
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+  }
+
+  /* Body font */
+  .font-body {
+    font-family: 'Lato', sans-serif;
+  }
+}
+
+@layer components {
+  .hero-gradient {
+    background: var(--hero-gradient);
+  }
+
+  .glass-effect {
+    background: var(--glass-gradient);
+    backdrop-filter: blur(8px);
+  }
+
+  .cta-gradient {
+    background: var(--cta-gradient);
+  }
+
+  .card-elevated {
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-elevated:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(200 60% 45%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Smooth text */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-bounce-subtle {
+    animation: bounceSoft 2s ease-in-out infinite;
+  }
+
+  @keyframes bounceSoft {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-6px);
+    }
+  }
+
+  /* Smooth font rendering */
+  .font-smooth {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}

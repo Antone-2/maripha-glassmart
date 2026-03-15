@@ -1,0 +1,36 @@
+{
+    "name": "Maripha Glassmart",
+    "short_name": "Maripha Glassmart",
+    "description": "Your trusted supplier of quality glass, paints, and sanitary ware in Busia, Kenya.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "icons": [],
+    "categories": [
+        "shopping",
+        "business"
+    ],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Products",
+            "short_name": "Products",
+            "description": "Browse our products",
+            "url": "/products"
+        },
+        {
+            "name": "Get Quote",
+            "short_name": "Quote",
+            "description": "Request a quote",
+            "url": "/quote"
+        },
+        {
+            "name": "Contact",
+            "short_name": "Contact",
+            "description": "Contact us",
+            "url": "/contact"
+        }
+    ]
+}

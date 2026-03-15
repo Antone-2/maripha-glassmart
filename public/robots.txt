@@ -1,0 +1,29 @@
+# Robots.txt for Maripha Glassmart
+# https://mariphaglassmart.co.ke
+
+User-agent: *
+Allow: /
+
+# Disallow admin/private areas
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://mariphaglassmart.co.ke/sitemap.xml
+
+# Crawl-delay (optional, for polite crawling)
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+
+User-agent: Slurp
+Allow: /
+Disallow: /api/

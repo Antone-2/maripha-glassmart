@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maripha Glassmart | Quality Glass, Paints & Sanitary Ware in Busia, Kenya</title>
+  <meta name="description"
+    content="Your trusted supplier for quality glass, paints, sinks, taps, toilets, and showers in Busia, Kenya. Premium building materials at affordable prices." />
+  <meta property="og:title" content="Maripha Glassmart | Quality Glass, Paints & Sanitary Ware" />
+  <meta property="og:description"
+    content="Your trusted supplier for quality glass, paints, and sanitary ware in Busia, Kenya." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://mariphaglass.co.ke" />
+  <link rel="icon" type="image/svg+xml" href="/placeholder.svg" />
+  <link rel="apple-touch-icon" href="/placeholder.svg" />
+
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#2563eb" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Maripha Glassmart" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Google Fonts - Classic & Elegant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+
+  <!-- PWA Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('SW registered:', registration);
+          })
+          .catch(error => {
+            console.log('SW registration failed:', error);
+          });
+      });
+    }
+  </script>
+</body>
+
+</html>
