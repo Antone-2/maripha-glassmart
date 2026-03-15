@@ -4,7 +4,7 @@ import { Loader2, CheckCircle, XCircle, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 const Verify = () => {
     const { token } = useParams<{ token: string }>();
@@ -52,7 +52,7 @@ const Verify = () => {
             <Card className="w-full max-w-md">
                 <CardHeader className="text-center">
                     <div className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 ${status === 'loading' ? 'bg-primary/10' :
-                            status === 'success' ? 'bg-green-100' : 'bg-red-100'
+                        status === 'success' ? 'bg-green-100' : 'bg-red-100'
                         }`}>
                         {status === 'loading' ? (
                             <Loader2 className="h-8 w-8 text-primary animate-spin" />
