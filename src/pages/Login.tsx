@@ -9,6 +9,11 @@ import { useToast } from "@/hooks/use-toast";
 import { useStore } from "@/store/useStore";
 
 const API_URL = import.meta.env.VITE_API_URL || '';
+// Use relative paths (no origin) so Vercel can proxy to backend
+const getApiUrl = (endpoint: string) => {
+    // If VITE_API_URL is set, use it; otherwise use relative path for Vercel proxy
+    return API_URL ? `${API_URL}${endpoint}` : endpoint;
+};
 
 const Login = () => {
     const navigate = useNavigate();
@@ -28,7 +33,7 @@ const Login = () => {
 
         setResendingVerification(true);
         try {
-            const response = await fetch(`${API_URL}/api/auth/resend-verification`, {
+            const response = await fetch(getApiUrl('/api/auth/resend-verification'), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,7 +68,7 @@ const Login = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch(`${API_URL}/api/auth/login`, {
+            const response = await fetch(getApiUrl('/api/auth/login'), {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
