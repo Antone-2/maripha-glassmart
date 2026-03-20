@@ -13,7 +13,23 @@ const AgeVerification = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isVerified, setIsVerified] = useState<boolean | null>(null);
 
+    // Skip age verification on certain routes
+    const skipVerificationRoutes = [
+        '/verify/',
+        '/login',
+        '/register'
+    ];
+    const shouldSkipVerification = skipVerificationRoutes.some(route =>
+        window.location.pathname.startsWith(route)
+    );
+
     useEffect(() => {
+        // Skip verification on certain routes
+        if (shouldSkipVerification) {
+            setIsVerified(true);
+            return;
+        }
+
         // Check if user has already verified age
         const hasVerified = localStorage.getItem("age_verified");
 
@@ -23,7 +39,7 @@ const AgeVerification = () => {
         } else {
             setIsVerified(true);
         }
-    }, []);
+    }, [shouldSkipVerification]);
 
     const handleVerify = (isAdult: boolean) => {
         if (isAdult) {

@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import FloatingButtons from "@/components/FloatingButtons";
 import Newsletter from "@/components/Newsletter";
 import Breadcrumb from "@/components/Breadcrumb";
 
@@ -17,7 +16,6 @@ const Layout = ({ children }: LayoutProps) => {
       <main className="flex-1 pt-16 lg:pt-20">{children}</main>
       <Newsletter />
       <Footer />
-      <FloatingButtons />
     </div>
   );
 };

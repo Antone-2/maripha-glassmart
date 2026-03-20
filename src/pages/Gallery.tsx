@@ -11,9 +11,9 @@ import sanitaryWare from "@/assets/Sanitary Ware Collection.jpg";
 
 const categories = [
   { id: "all", name: "All" },
-  { id: "glass", name: "Glass Installations" },
+  { id: "glass", name: "Glass" },
   { id: "bathroom", name: "Bathrooms" },
-  { id: "paint", name: "Paint Projects" },
+  { id: "paint", name: "Paint" },
 ];
 
 const projects = [
@@ -109,31 +109,31 @@ const Gallery = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-12 lg:py-16 hero-gradient">
-        <div className="container mx-auto px-4">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="py-8 md:py-12 lg:py-16 hero-gradient">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-2xl">
-            <h1 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-primary-foreground mb-3 md:mb-4">
               Our Projects Gallery
             </h1>
-            <p className="text-primary-foreground/90">
+            <p className="text-sm md:text-base text-primary-foreground/90">
               See examples of our work across glass installations, bathroom projects, and painting jobs.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Category Filter */}
-      <section className="py-6 bg-card border-b border-border sticky top-16 lg:top-20 z-40">
-        <div className="container mx-auto px-4">
-          <div className="flex gap-2 overflow-x-auto pb-2">
+      {/* Category Filter - Mobile Optimized with horizontal scroll */}
+      <section className="py-3 md:py-4 bg-card border-b border-border sticky top-14 md:top-16 lg:top-20 z-40">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex gap-2 overflow-x-auto pb-2 -mb-2 md:pb-0 md:-mb-0 scrollbar-hide">
             {categories.map((category) => (
               <Button
                 key={category.id}
                 variant={selectedCategory === category.id ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedCategory(category.id)}
-                className="whitespace-nowrap"
+                className="whitespace-nowrap h-9 px-4 text-xs md:text-sm flex-shrink-0"
               >
                 {category.name}
               </Button>
@@ -142,56 +142,74 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Gallery Grid */}
-      <section className="py-12 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Gallery Grid - Mobile Optimized */}
+      <section className="py-6 md:py-10 lg:py-12 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group relative overflow-hidden rounded-2xl card-elevated"
+                className="group relative overflow-hidden rounded-xl card-elevated cursor-pointer"
               >
-                <div className="aspect-[3/2] overflow-hidden">
+                {/* Image container with aspect ratio */}
+                <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                  <span className="text-xs font-medium text-accent uppercase tracking-wide mb-2">
+
+                {/* Overlay - shows on hover on desktop, always show type on mobile */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-80 md:opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4 md:p-5">
+                  <span className="text-xs font-medium text-accent uppercase tracking-wide mb-1">
                     {project.type} • {project.location}
                   </span>
-                  <h3 className="font-display font-semibold text-lg text-primary-foreground mb-2">
+                  <h3 className="font-display font-semibold text-sm md:text-base text-white mb-1 line-clamp-1">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-primary-foreground/80">
+                  <p className="text-xs md:text-sm text-white/80 line-clamp-2">
                     {project.description}
                   </p>
                 </div>
-                {/* Badge */}
-                <div className="absolute top-4 left-4">
-                  <span className="px-3 py-1 rounded-full bg-card/90 backdrop-blur-sm text-xs font-medium text-foreground">
+
+                {/* Badge - always visible on mobile */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm text-xs font-medium text-white">
                     {categories.find((c) => c.id === project.category)?.name}
+                  </span>
+                </div>
+
+                {/* Type badge - desktop hover */}
+                <div className="absolute top-3 right-3 md:opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="px-2.5 py-1 rounded-full bg-primary/90 backdrop-blur-sm text-xs font-medium text-white">
+                    {project.type}
                   </span>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Empty state */}
+          {filteredProjects.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">No projects found in this category.</p>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 lg:py-20 hero-gradient">
-        <div className="container mx-auto px-4">
+      {/* CTA - Mobile Optimized */}
+      <section className="py-10 md:py-14 lg:py-16 hero-gradient">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            <h2 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-primary-foreground mb-3 md:mb-4">
               Want to See Your Project Here?
             </h2>
-            <p className="text-primary-foreground/90 text-lg mb-8">
+            <p className="text-sm md:text-base lg:text-lg text-primary-foreground/90 mb-6 md:mb-8">
               Let us help bring your vision to life with our quality products and services.
             </p>
-            <Button variant="cta" size="xl" asChild>
+            <Button variant="cta" size="lg" asChild className="w-full sm:w-auto h-12 md:h-14 text-sm md:text-base px-6 md:px-8">
               <a href="/quote">Start Your Project</a>
             </Button>
           </div>

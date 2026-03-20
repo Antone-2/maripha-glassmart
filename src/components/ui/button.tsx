@@ -21,11 +21,11 @@ const buttonVariants = cva(
         "hero-outline": "border-2 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground/10",
       },
       size: {
-        default: "h-11 px-6 py-2",
-        sm: "h-9 rounded-md px-4",
-        lg: "h-12 rounded-lg px-8 text-base",
-        xl: "h-14 rounded-xl px-10 text-lg",
-        icon: "h-10 w-10",
+        default: "h-10 sm:h-11 px-4 sm:px-6 py-1.5 sm:py-2 text-xs sm:text-sm",
+        sm: "h-8 sm:h-9 rounded-md px-3 sm:px-4 text-xs sm:text-sm",
+        lg: "h-11 sm:h-12 rounded-lg px-6 sm:px-8 text-sm sm:text-base",
+        xl: "h-12 sm:h-14 rounded-xl px-8 sm:px-10 text-base sm:text-lg",
+        icon: "h-9 sm:h-10 w-9 sm:w-10",
       },
     },
     defaultVariants: {
@@ -37,7 +37,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 

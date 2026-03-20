@@ -177,7 +177,7 @@ const Checkout = () => {
                                             id="name"
                                             value={shippingAddress.name}
                                             onChange={(e) => setShippingAddress({ ...shippingAddress, name: e.target.value })}
-                                            placeholder="John Doe"
+                                            placeholder="Your Name"
                                             required
                                         />
                                     </div>

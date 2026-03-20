@@ -6,7 +6,22 @@ const CookieConsent = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [isAnimatingOut, setIsAnimatingOut] = useState(false);
 
+    // Skip cookie consent on certain routes
+    const skipConsentRoutes = [
+        '/verify/',
+        '/login',
+        '/register'
+    ];
+    const shouldSkipConsent = skipConsentRoutes.some(route =>
+        window.location.pathname.startsWith(route)
+    );
+
     useEffect(() => {
+        // Skip on certain routes
+        if (shouldSkipConsent) {
+            return;
+        }
+
         // Check if user has already made a choice
         const hasConsented = localStorage.getItem("cookie_consent");
         if (!hasConsented) {
@@ -16,7 +31,7 @@ const CookieConsent = () => {
             }, 2000);
             return () => clearTimeout(timer);
         }
-    }, []);
+    }, [shouldSkipConsent]);
 
     const handleAccept = () => {
         localStorage.setItem("cookie_consent", "accepted");

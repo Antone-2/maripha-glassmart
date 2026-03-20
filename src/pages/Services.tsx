@@ -67,17 +67,17 @@ const Services = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="py-16 lg:py-24 hero-gradient">
-        <div className="container mx-auto px-4">
+      {/* Hero Section - Mobile Optimized */}
+      <section className="py-10 md:py-16 lg:py-24 hero-gradient">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary-foreground/10 text-primary-foreground text-sm font-medium mb-6 backdrop-blur-sm border border-primary-foreground/20">
+            <span className="inline-block px-3 py-1.5 md:px-4 py-2 rounded-full bg-primary-foreground/10 text-primary-foreground text-xs md:text-sm font-medium mb-4 md:mb-6 backdrop-blur-sm border border-primary-foreground/20">
               Our Services
             </span>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
+            <h1 className="font-display text-2xl md:text-3xl lg:text-4xl md:text-4xl font-bold text-primary-foreground mb-3 md:mb-6">
               Professional Services for Your Project
             </h1>
-            <p className="text-lg text-primary-foreground/90 leading-relaxed">
+            <p className="text-sm md:text-base lg:text-lg text-primary-foreground/90 leading-relaxed">
               Beyond quality products, we offer expert services to ensure your project is completed
               to the highest standards. From cutting to installation to delivery.
             </p>
@@ -85,49 +85,52 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Services List */}
-      <section className="py-16 lg:py-24 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="space-y-8">
+      {/* Services List - Mobile Optimized */}
+      <section className="py-10 md:py-16 lg:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="space-y-6 md:space-y-8">
             {services.map((service, index) => (
               <Card key={service.title} className="overflow-hidden card-elevated">
-                <div className={`grid lg:grid-cols-2 ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
-                  <CardContent className="p-8 lg:p-10">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
-                      <service.icon className="w-7 h-7 text-primary" />
+                {/* Mobile: Stack vertically, Desktop: Side by side */}
+                <div className="flex flex-col lg:flex-row">
+                  <CardContent className="p-5 md:p-6 lg:p-10 flex-1">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 md:mb-6">
+                      <service.icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
                     </div>
-                    <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-4">
+                    <h2 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-3 md:mb-4">
                       {service.title}
                     </h2>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                    <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 leading-relaxed">
                       {service.description}
                     </p>
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-2 md:space-y-3 mb-5 md:mb-8">
                       {service.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-center gap-3 text-foreground">
-                          <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
-                          {benefit}
+                        <li key={idx} className="flex items-start gap-2 md:gap-3 text-foreground text-sm md:text-base">
+                          <span className="w-2 h-2 rounded-full bg-accent shrink-0 mt-1.5 md:mt-2" />
+                          <span>{benefit}</span>
                         </li>
                       ))}
                     </ul>
-                    <div className="flex flex-col sm:flex-row gap-3">
+                    {/* Mobile-first buttons - full width on mobile */}
+                    <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
                       <Button
                         variant="cta"
                         onClick={() => handleWhatsApp(service.title)}
-                        className="gap-2"
+                        className="w-full sm:w-auto h-11 md:h-12 gap-2 text-sm md:text-base"
                       >
-                        <MessageCircle className="w-5 h-5" />
+                        <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
                         {service.cta}
                       </Button>
-                      <Button variant="outline" onClick={handleCall} className="gap-2">
-                        <Phone className="w-5 h-5" />
+                      <Button variant="outline" onClick={handleCall} className="w-full sm:w-auto h-11 md:h-12 gap-2 text-sm md:text-base">
+                        <Phone className="w-4 h-4 md:w-5 md:h-5" />
                         Call to Inquire
                       </Button>
                     </div>
                   </CardContent>
-                  <div className={`bg-secondary p-8 lg:p-10 flex items-center justify-center ${index % 2 === 1 ? "lg:order-first" : ""}`}>
-                    <div className="w-32 h-32 rounded-full bg-primary/10 flex items-center justify-center">
-                      <service.icon className="w-16 h-16 text-primary" />
+                  {/* Icon visual section - hidden on mobile for cleaner look */}
+                  <div className="hidden md:flex bg-secondary p-6 lg:p-10 items-center justify-center lg:w-64 shrink-0">
+                    <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full bg-primary/10 flex items-center justify-center">
+                      <service.icon className="w-12 h-12 lg:w-16 lg:h-16 text-primary" />
                     </div>
                   </div>
                 </div>
@@ -137,19 +140,20 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-16 lg:py-24 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+      {/* Process Section - Mobile Optimized */}
+      <section className="py-10 md:py-16 lg:py-24 bg-muted/50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="font-display text-xl md:text-2xl lg:text-3xl md:text-3xl font-bold text-foreground mb-3 md:mb-4">
               How It Works
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto">
               Getting our services is easy. Here's how to get started.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          {/* Mobile: 2x2 grid, Desktop: 4 in a row */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[
               { step: "1", title: "Contact Us", desc: "Call, WhatsApp, or visit our shop" },
               { step: "2", title: "Discuss Needs", desc: "Tell us about your project" },
@@ -157,32 +161,32 @@ const Services = () => {
               { step: "4", title: "We Deliver", desc: "Products delivered & installed" },
             ].map((item) => (
               <div key={item.step} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground font-display font-bold text-2xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full bg-primary text-primary-foreground font-display font-bold text-lg md:text-xl lg:text-2xl flex items-center justify-center mx-auto mb-3 md:mb-4">
                   {item.step}
                 </div>
-                <h3 className="font-display font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                <h3 className="font-display font-semibold text-sm md:text-base text-foreground mb-1 md:mb-2">{item.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 lg:py-20 hero-gradient">
-        <div className="container mx-auto px-4">
+      {/* CTA Section - Mobile Optimized */}
+      <section className="py-10 md:py-16 lg:py-20 hero-gradient">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            <h2 className="font-display text-xl md:text-2xl lg:text-3xl md:text-3xl font-bold text-primary-foreground mb-3 md:mb-4">
               Ready to Get Started?
             </h2>
-            <p className="text-primary-foreground/90 text-lg mb-8">
+            <p className="text-sm md:text-base lg:text-lg text-primary-foreground/90 mb-6 md:mb-8">
               Contact us today to discuss your project requirements.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="cta" size="xl" asChild>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center w-full sm:w-auto">
+              <Button variant="cta" size="lg" asChild className="w-full sm:w-auto h-12 md:h-14 text-sm md:text-base">
                 <Link to="/quote">Request a Quote</Link>
               </Button>
-              <Button variant="hero" size="xl" asChild>
+              <Button variant="hero" size="lg" asChild className="w-full sm:w-auto h-12 md:h-14 text-sm md:text-base">
                 <Link to="/contact">Contact Us</Link>
               </Button>
             </div>

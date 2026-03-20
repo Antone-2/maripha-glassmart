@@ -78,63 +78,47 @@ const Newsletter = () => {
             <div className="absolute bottom-10 right-10 w-48 h-48 bg-white/10 rounded-full blur-3xl" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-2xl mx-auto text-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-2xl mb-6">
-                        <Mailbox className="w-8 h-8 text-white" />
+                <div className="max-w-xl mx-auto text-center">
+                    <div className="inline-flex items-center justify-center w-12 h-12 md:w-16 md:h-16 bg-white/20 rounded-xl mb-4 md:mb-6">
+                        <Mailbox className="w-5 h-5 md:w-8 md:h-8 text-white" />
                     </div>
-                    <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-4">
+                    <h2 className="font-display text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-4">
                         Stay Updated!
                     </h2>
-                    <p className="text-white/80 text-lg mb-8">
-                        Subscribe to our newsletter for exclusive deals, new product announcements, and expert tips on glass, paints, and sanitary ware.
+                    <p className="text-white/80 text-sm md:text-base mb-6 md:mb-8">
+                        Subscribe for exclusive deals and new products.
                     </p>
 
-                    <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                    <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2 md:gap-3 max-w-md mx-auto">
                         <Input
                             type="email"
-                            placeholder="Enter your email address"
+                            placeholder="Your email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="flex-1 h-12 bg-white/20 border-white/30 text-white placeholder:text-white/60 backdrop-blur-sm focus:bg-white/30"
+                            className="flex-1 h-10 md:h-12 bg-white/20 border-white/30 text-white placeholder:text-white/60 backdrop-blur-sm focus:bg-white/30 text-sm md:text-base"
                             required
                         />
                         <Button
                             type="submit"
                             variant="secondary"
                             size="lg"
-                            className="h-12 px-6 gap-2"
+                            className="h-10 md:h-12 px-4 md:px-6 gap-2"
                             disabled={isSubscribing}
                         >
                             {isSubscribing ? (
-                                <span className="animate-pulse">Subscribing...</span>
+                                <span className="text-xs md:text-sm animate-pulse">Subscribing...</span>
                             ) : (
                                 <>
-                                    Subscribe
-                                    <Send className="w-4 h-4" />
+                                    <span className="text-xs md:text-sm">Subscribe</span>
+                                    <Send className="w-3 h-3 md:w-4 md:h-4" />
                                 </>
                             )}
                         </Button>
                     </form>
 
-                    <p className="text-white/60 text-sm mt-4">
-                        🔒 We respect your privacy. Unsubscribe at any time.
+                    <p className="text-white/60 text-xs md:text-sm mt-3 md:mt-4">
+                        🔒 Unsubscribe anytime
                     </p>
-                </div>
-
-                {/* Stats */}
-                <div className="grid grid-cols-3 gap-8 mt-12 max-w-2xl mx-auto text-center">
-                    <div>
-                        <p className="text-3xl font-bold text-white">5K+</p>
-                        <p className="text-white/70 text-sm">Subscribers</p>
-                    </div>
-                    <div>
-                        <p className="text-3xl font-bold text-white">10+</p>
-                        <p className="text-white/70 text-sm">Years Experience</p>
-                    </div>
-                    <div>
-                        <p className="text-3xl font-bold text-white">100%</p>
-                        <p className="text-white/70 text-sm">Satisfaction</p>
-                    </div>
                 </div>
             </div>
         </section>

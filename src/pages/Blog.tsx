@@ -348,20 +348,7 @@ const Blog = () => {
                 </div>
             </section>
 
-            {/* Newsletter CTA */}
-            <section className="py-12 bg-muted/30">
-                <div className="container mx-auto px-4 text-center">
-                    <h3 className="font-display text-2xl font-bold mb-3">Stay Updated</h3>
-                    <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-                        Subscribe to our newsletter for the latest articles, tips, and exclusive offers delivered to your inbox.
-                    </p>
-                    <Button asChild>
-                        <Link to="/contact">
-                            Subscribe Now <ArrowRight className="ml-2 w-4 h-4" />
-                        </Link>
-                    </Button>
-                </div>
-            </section>
+            {/* Newsletter CTA - Removed - Already shown via Layout component */}
         </Layout>
     );
 };

@@ -245,7 +245,7 @@ const Cart = () => {
                                                 <Label htmlFor="checkout-name">Your Name *</Label>
                                                 <Input
                                                     id="checkout-name"
-                                                    placeholder="John Doe"
+                                                    placeholder="Your Name"
                                                     value={checkoutData.name}
                                                     onChange={(e) =>
                                                         setCheckoutData({ ...checkoutData, name: e.target.value })
@@ -258,7 +258,7 @@ const Cart = () => {
                                                 <Input
                                                     id="checkout-phone"
                                                     type="tel"
-                                                    placeholder="+254 7XX XXX XXX"
+                                                    placeholder="Phone number"
                                                     value={checkoutData.phone}
                                                     onChange={(e) =>
                                                         setCheckoutData({ ...checkoutData, phone: e.target.value })
@@ -271,7 +271,7 @@ const Cart = () => {
                                                 <Input
                                                     id="checkout-email"
                                                     type="email"
-                                                    placeholder="john@example.com"
+                                                    placeholder="Email Address"
                                                     value={checkoutData.email}
                                                     onChange={(e) =>
                                                         setCheckoutData({ ...checkoutData, email: e.target.value })

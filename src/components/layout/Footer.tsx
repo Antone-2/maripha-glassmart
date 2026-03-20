@@ -35,49 +35,72 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-8">
-        {/* Mobile-friendly single column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Company Info - Simplified */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
+      <div className="container mx-auto px-4 py-8 md:py-10">
+        {/* Mobile-friendly grid - single column on mobile, multi-column on larger screens */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {/* Company Info */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 mb-2">
               <div className="w-10 h-10 rounded-lg bg-primary-foreground flex items-center justify-center">
                 <span className="text-primary font-display font-bold text-lg">M</span>
               </div>
               <h3 className="font-display font-bold text-lg">Maripha Glassmart</h3>
             </div>
-            <p className="text-primary-foreground/80 text-sm mb-4">
+            <p className="text-primary-foreground/80 text-sm">
               Quality glass, paints & sanitary ware in Busia, Kenya.
             </p>
 
-            {/* Social Links - Compact on mobile */}
-            <div className="flex gap-2 mb-4">
-              <a href="https://facebook.com/mariphaglass" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20">
-                <Facebook className="w-4 h-4" />
+            {/* Social Links */}
+            <div className="flex gap-2">
+              <a
+                href="https://facebook.com/mariphaglass"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+              >
+                <Facebook className="w-5 h-5" />
               </a>
-              <a href="https://instagram.com/mariphaglass" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20">
-                <Instagram className="w-4 h-4" />
+              <a
+                href="https://instagram.com/mariphaglass"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+              >
+                <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://wa.me/254728508906" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20">
-                <MessageCircle className="w-4 h-4" />
+              <a
+                href="https://wa.me/254728508906"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors"
+              >
+                <MessageCircle className="w-5 h-5" />
               </a>
             </div>
 
-            {/* Contact - Compact */}
-            <div className="space-y-2 text-sm">
-              <a href="tel:+254728508906" className="flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground">
-                <Phone className="w-4 h-4" /> +254 728 508 906
+            {/* Contact Info */}
+            <div className="space-y-3 pt-2">
+              <a
+                href="tel:+254728508906"
+                className="flex items-center gap-3 text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm"
+              >
+                <Phone className="w-4 h-4 shrink-0" />
+                <span>+254 728 508 906</span>
               </a>
-              <a href="mailto:info@mariphaglass.co.ke" className="flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground">
-                <Mail className="w-4 h-4" /> info@mariphaglass.co.ke
+              <a
+                href="mailto:info@mariphaglass.co.ke"
+                className="flex items-center gap-3 text-primary-foreground/80 hover:text-primary-foreground transition-colors text-sm"
+              >
+                <Mail className="w-4 h-4 shrink-0" />
+                <span>info@mariphaglass.co.ke</span>
               </a>
             </div>
           </div>
 
-          {/* Quick Links + Products Combined */}
+          {/* Quick Links */}
           <div>
-            <h4 className="font-display font-semibold mb-4">Quick Links</h4>
-            <ul className="grid grid-cols-2 gap-2 text-sm">
+            <h4 className="font-display font-semibold mb-4 text-base">Quick Links</h4>
+            <ul className="grid grid-cols-2 gap-y-2 gap-x-4 text-sm">
               {[
                 { name: "Home", path: "/" },
                 { name: "Products", path: "/products" },
@@ -87,7 +110,10 @@ const Footer = () => {
                 { name: "Contact", path: "/contact" },
               ].map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-primary-foreground/80 hover:text-primary-foreground">
+                  <Link
+                    to={link.path}
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors inline-block py-1"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -97,7 +123,7 @@ const Footer = () => {
 
           {/* Support */}
           <div>
-            <h4 className="font-display font-semibold mb-4">Support</h4>
+            <h4 className="font-display font-semibold mb-4 text-base">Support</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { name: "FAQ", path: "/faq" },
@@ -106,7 +132,10 @@ const Footer = () => {
                 { name: "Return Policy", path: "/return-policy" },
               ].map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-primary-foreground/80 hover:text-primary-foreground">
+                  <Link
+                    to={link.path}
+                    className="text-primary-foreground/80 hover:text-primary-foreground transition-colors inline-block py-1"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -116,8 +145,15 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 pt-6 border-t border-primary-foreground/20 text-center text-sm text-primary-foreground/70">
-          <p>© {currentYear} Maripha Glassmart. All rights reserved.</p>
+        <div className="mt-8 md:mt-10 pt-6 border-t border-primary-foreground/20">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p className="text-sm text-primary-foreground/70">
+              © {currentYear} Maripha Glassmart. All rights reserved.
+            </p>
+            <p className="text-xs text-primary-foreground/50">
+              Designed with quality in mind
+            </p>
+          </div>
         </div>
       </div>
     </footer>

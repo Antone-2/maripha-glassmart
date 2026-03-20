@@ -114,7 +114,7 @@ const Register = () => {
                                 <Input
                                     id="name"
                                     type="text"
-                                    placeholder="John Doe"
+                                    placeholder="Your Name"
                                     className="pl-10"
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
